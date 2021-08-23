@@ -1,2 +1,7 @@
 <h1>Baskets#show</h1>
-<p>Find me in app/views/baskets/show.html.erb</p>
+
+<p><%= @basket.description %></p>
+<p><%= @basket.address %></p>
+<p><%= @basket.price %></p>
+
+<%= link_to 'claim this basket', new_basket_order_path(@basket) %>

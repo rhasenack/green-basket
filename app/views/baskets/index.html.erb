@@ -1,2 +1,10 @@
 <h1>Baskets#index</h1>
 <p>Find me in app/views/baskets/index.html.erb</p>
+
+<% @baskets.each do |basket| %>
+  <li>
+    <%= link_to  basket.description, basket_path(basket)  %>
+  </li>
+<% end  %>
+
+<%= link_to 'add new basket', new_basket_path  %>
