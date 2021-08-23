@@ -6,5 +6,4 @@ Rails.application.routes.draw do
   resources :baskets, only: [:index, :show, :create, :new] do
     resources :orders, only: [:create, :new, :index]
   end
-
 end

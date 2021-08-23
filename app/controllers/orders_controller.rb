@@ -20,4 +20,8 @@ class OrdersController < ApplicationController
     @order.save
     redirect_to
   end
+<<<<<<< HEAD
+=======
+
+>>>>>>> ab5495964ef1f540082185b63761c6f61874800c
 end
