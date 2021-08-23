@@ -1,5 +1,5 @@
 class Basket < ApplicationRecord
-  has_many :orders, dependant: :destroy
+  has_many :orders, dependent: :destroy
 
-  validates :description, :adress, :price, presence: true
+  validates :description, :address, :price, presence: true
 end
