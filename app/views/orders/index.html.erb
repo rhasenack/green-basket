@@ -1,0 +1,10 @@
+<h1>My Orders <%= current_user.email %></h1>
+
+<% @orders.each do |order| %>
+  <li>
+    <%= order.basket_id %>
+    <%= order.user_id %>
+    <%= order.price %>
+    <%= order.status %>
+  </li>
+<% end  %>
