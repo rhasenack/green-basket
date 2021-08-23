@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
 
-
   def index
     @orders = Order.all.where("user_id = #{current_user.id}")
   end
@@ -20,8 +19,5 @@ class OrdersController < ApplicationController
     @order.save
     redirect_to
   end
-<<<<<<< HEAD
-=======
 
->>>>>>> ab5495964ef1f540082185b63761c6f61874800c
 end
