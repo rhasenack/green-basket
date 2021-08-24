@@ -1,38 +1,27 @@
-body {
-  width: 100%;
-  background: $orange;
-  user-select: none;
-}
-
-
-.menu {
+.navbar {
   width: 100%;
   cursor: pointer;
   background: $light-gray;
   min-height: 80px;
-  a {
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: $green;
-  letter-spacing: 25px;
-  }
+} 
 
-  a:hover {
-  font-size: 35px;
-  transition: 0.2s;
-  color: $orange;
-  }
-
-}
-
-.menu__item {
+.navbar__item {
   width: auto;
   height: auto;
   margin: 10px;
   overflow: hidden;
+  font-weight: bold;
+  letter-spacing: 25px;
+  color: $green;
 }
 
-h3 {
-  color: $green;
+.navbar__icon {
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.navbar__icon:hover {
+  font-size: 35px;
+  transition: 0.2s;
+  color: $orange;
 }

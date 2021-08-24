@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+ .login {
+  h2 {
+    color: #eeedf0;
+  }
+
+  h4 {
+    font-weight: 600;
+    color: $light-gray;
+  }
+
+  span {
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    color: $gray;
+  }
+
+  label {
+    color: $light-gray;
+  }
+
+ }
+
+.forgot {
+  cursor: pointer;
+  transition: all 200ms linear;
+  color: $pink;
+}
+
+.forgot:hover {
+  text-decoration: none;
+}
+
+.link {
+  color: #eeedf0;
+}
+
+.link:hover {
+  color: #cb69c1;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.full-height {
+  min-height: 100vh;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $green;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #eeedf0;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: $orange;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px $orange;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(64px);
+  -ms-transform: translateX(64px);
+  transform: translateX(64px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+ .btn {
+   color: $green;
+   background: $orange;
+ }
+
+ .center-wrap {
+   width: 350px;
+   margin: 0 auto;
+   border-radius: 30px;
+   padding: 20px 0;
+ }
+
+ .front {
+   background-color: $green;
+ }
+
+ .back {
+   background-color: #cb69c1;
+ }
+
+ .wrong {
+   background-color: red;
+ }
+
+.right {
+  background-color: seagreen;
+}

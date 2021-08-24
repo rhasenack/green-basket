@@ -11,3 +11,17 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.light-gray {
+  color: $light-gray;
+}
+
+.green {
+  color: $green;
+}
+
+body {
+  width: 100%;
+  background: linear-gradient(211deg, $orange 0%, $pink 100%);;
+  user-select: none;
+}
