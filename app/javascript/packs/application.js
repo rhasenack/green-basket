@@ -29,9 +29,12 @@ import { toggleItemsInOrders } from './orders_select';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import {switchLogic} from './login'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  switchLogic();
   toggleItemsInOrders();
+
 });
