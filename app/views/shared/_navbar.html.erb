@@ -1,23 +1,23 @@
-<nav class='d-flex justify-content-between align-items-center menu'>
-    <h3 class='menu__item'>GREEN BASKET</h3>
+<nav class='d-flex justify-content-between align-items-center navbar'>
+    <h3 class='navbar__item'>GREEN BASKET</h3>
     <div class='d-flex justify-content-end'>
-    <%= link_to root_path,class: 'menu__item',  :action => 'go' do %>
-        <div class='menu__c'>
+    <%= link_to root_path,class: 'navbar__item navbar__icon', :action => 'go' do %>
+        <div class='navbar__c'>
           <i class='fas fa-home'></i>
         </div>
     <% end%>
-    <%= link_to root_path,class: 'menu__item',  :action => 'go' do %>
-        <div class='menu__c'>
+    <%= link_to root_path,class: 'navbar__item navbar__icon', :action => 'go' do %>
+        <div class='navbar__c'>
           <i class='fas fa-inbox'></i>
         </div>
     <% end%>
-    <%= link_to root_path,class: 'menu__item',  :action => 'go' do %>
-        <div class='menu__c'>
+    <%= link_to root_path,class: 'navbar__item navbar__icon', :action => 'go' do %>
+        <div class='navbar__c'>
           <i class='fas fa-heart'></i>
         </div>
     <% end%>
-    <%= link_to new_user_session_path,class: 'menu__item',  :action => 'go' do %>
-        <div class='menu__c'>
+    <%= link_to new_user_session_path,class: 'navbar__item navbar__icon', :action => 'go' do %>
+        <div class='navbar__c'>
           <i class='fas fa-user'></i>
         </div>
     <% end%>

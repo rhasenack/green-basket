@@ -19,3 +19,9 @@
 .green {
   color: $green;
 }
+
+body {
+  width: 100%;
+  background: linear-gradient(211deg, $orange 0%, $pink 100%);;
+  user-select: none;
+}
