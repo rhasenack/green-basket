@@ -15,7 +15,7 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: 20px;
-    color: $gray;
+    color: $green;
   }
 
   label {
@@ -24,22 +24,39 @@
 
  }
 
+ .sign {
+  h2 {
+    color: $gray;
+  }
+
+  h4 {
+    font-weight: 600;
+    color: $green;
+  }
+
+  span {
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    color: $orange;
+  }
+
+  label {
+    color: $green;
+  }
+
+ }
+
 .forgot {
   cursor: pointer;
   transition: all 200ms linear;
-  color: $pink;
+  color: $orange;
 }
 
 .forgot:hover {
   text-decoration: none;
-}
-
-.link {
-  color: #eeedf0;
-}
-
-.link:hover {
-  color: #cb69c1;
+  color: $pink;
 }
 
 .section {
@@ -110,9 +127,25 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
- .btn {
+ .btn-log {
    color: $green;
    background: $orange;
+ }
+
+ .btn-log:hover {
+   background: $pink;
+   transition: 0.2s ease-in;
+ }
+
+ .btn-sign {
+   color: $light-gray;
+   background: $green;
+ }
+
+ .btn-sign:hover {
+   color: $green;
+   background: $light-green;
+   transition: 0.2s ease-in;
  }
 
  .center-wrap {
@@ -127,7 +160,11 @@ input:checked + .slider:before {
  }
 
  .back {
-   background-color: #cb69c1;
+   background-color: $orange;
+ }
+
+ .sign-background {
+   background: linear-gradient(41deg, #010101 0%, #255e29 63%);
  }
 
  .wrong {

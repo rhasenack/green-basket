@@ -2,8 +2,8 @@
   width: 100%;
   cursor: pointer;
   background: $light-gray;
-  min-height: 80px;
-} 
+  min-height: 90px;
+}
 
 .navbar__item {
   width: auto;
@@ -13,15 +13,16 @@
   font-weight: bold;
   letter-spacing: 25px;
   color: $green;
-}
-
-.navbar__icon {
+  text-decoration: none !important;
   font-size: 30px;
-  text-decoration: none;
+  transition: 0.2s;
 }
 
-.navbar__icon:hover {
-  font-size: 35px;
-  transition: 0.2s;
-  color: $orange;
+.navbar__item:hover {
+  font-size: 34px;
+  color: unset;
+  margin: 7px 8px;
+  .navbar__icon {
+    color: $orange;
+  }
 }
