@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :baskets, only: [:index, :show, :create, :new] do
-    resources :orders, only: [:create, :new, :index]
+    resources :orders, only: [:create, :new]
   end
+
+  resources :orders, only: [:index]
 end
