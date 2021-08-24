@@ -2,7 +2,7 @@ class BasketsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create]
   def index
-    @baskets = Basket.all
+    @baskets = Basket.all.where("status = 'available'")
   end
 
   def show

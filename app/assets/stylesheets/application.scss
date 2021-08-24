@@ -11,8 +11,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
 @import "components/banner";
 @import "components/links";
+
+@import "pages/orders";
+
 
 .light-gray {
   color: $light-gray;
@@ -24,7 +28,7 @@
 
 body {
   width: 100%;
-  background: linear-gradient(211deg, $yellow 0%, $orange 100%);;
+  background: linear-gradient(211deg, $yellow 0%, $orange 100%);
   user-select: none;
 }
 
