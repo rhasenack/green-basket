@@ -1,0 +1,24 @@
+.touch {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  left: -3px;
+  top: 2px;
+  border: 5px solid $gray;
+  opacity: 0;
+  border-radius: 50%;
+}
+
+input[type='radio']:checked ~ .touch {
+  position: absolute;
+  opacity: 1;
+  animation: explode 0.35s;
+}
+
+.line {
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background: $gray;
+  opacity: 0;
+}
