@@ -11,6 +11,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+@import "components/banner";
+@import "components/links";
+
 @import "pages/orders";
 
 
@@ -24,7 +28,7 @@
 
 body {
   width: 100%;
-  background: linear-gradient(211deg, $yellow 0%, $pink 100%);
+  background: linear-gradient(211deg, $yellow 0%, $orange 100%);
   user-select: none;
 }
 
@@ -47,6 +51,11 @@ body {
 
 .cards {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
+  justify-content: end;
+  margin-bottom: 10px;
+}
+
+
+h1 {
+  font-size: 30px;
 }
