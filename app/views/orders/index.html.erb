@@ -5,16 +5,27 @@
     <p><%= order.user_id %></p>
     <p><%= order.price %></p>
     <p><%= order.status %></p>
-  </li>
 <% end  %>
 
 
 <h1>My Baskets - <%= current_user.email %></h1>
 <% @baskets.each do |basket| %>
-<h1><%= basket.id %></h1>
+<h2><%= basket.id %></h2>
     <p><%= basket.description %></p>
     <p><%= basket.address %></p>
     <p><%= basket.price %></p>
     <p><%= basket.stock %></p>
-  </li>
+<h3>ORDERS</h3>
+  <%= basket.orders.each do |order| %>
+    <h2><%= order.id %></h2>
+    <p><%= order.user_id %></p>
+    <p><%= order.price %></p>
+    <p><%= order.status.capitalize %></p>
+    <% if order.status.downcase == 'requested' %>
+      <%= link_to "accept", accept_path(order), remote: true %>
+      <%= link_to "decline", decline_path(order), remote: true %>
+    <%elsif order.status.downcase == 'Confirmed'  %>
+      <%= link_to "cancel", cancel_path(order), remote: true %>
+    <%  end  %>
+  <% end  %>
 <% end  %>

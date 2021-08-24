@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:index]
+  get 'orders/:order_id/accept', to: 'orders#accept', as: :accept
+  get 'orders/:order_id/decline', to: 'orders#decline', as: :decline
+  get 'orders/:order_id/cancel', to: 'orders#cancel', as: :cancel
 end
