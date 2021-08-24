@@ -4,25 +4,26 @@ body {
   user-select: none;
 }
 
-a {
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: $green;
-  letter-spacing: 25px;
-}
-
-a:hover {
-  font-size: 35px;
-  transition: 0.2s;
-  color: $orange;
-}
 
 .menu {
   width: 100%;
   cursor: pointer;
   background: $light-gray;
   min-height: 80px;
+  a {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: $green;
+  letter-spacing: 25px;
+  }
+
+  a:hover {
+  font-size: 35px;
+  transition: 0.2s;
+  color: $orange;
+  }
+
 }
 
 .menu__item {
