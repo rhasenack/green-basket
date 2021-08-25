@@ -1,8 +1,5 @@
 const toggleItemsInOrders = () => {
 
-  const request_toggle = document.querySelector('#request-btn')
-  const confirm_toggle = document.querySelector('#confirm-btn')
-  const cancel_toggle = document.querySelector('#cancel-btn')
 
   const hide = (event, classToAdd) => {
     let elements = document.querySelectorAll(classToAdd);
@@ -10,6 +7,13 @@ const toggleItemsInOrders = () => {
       element.classList.toggle('d-none')
     });
   };
+
+  //ORDERS
+
+
+  const request_toggle = document.querySelector('#request-btn')
+  const confirm_toggle = document.querySelector('#confirm-btn')
+  const cancel_toggle = document.querySelector('#cancel-btn')
 
   request_toggle.addEventListener('click', (event) => {
     hide(event,'.Requested');
@@ -23,6 +27,18 @@ const toggleItemsInOrders = () => {
     hide(event, '.Cancelled');
   })
 
+  // BASKETS
+
+  const reserved_toggle = document.querySelector('#reserved-btn')
+  const available_toggle = document.querySelector('#available-btn')
+
+  reserved_toggle.addEventListener('click', (event) => {
+    hide(event, '.Reserved');
+  })
+
+  available_toggle.addEventListener('click', (event) => {
+    hide(event, '.Available');
+  })
 
   const basketToggles = document.querySelectorAll('.show-orders-button')
 
@@ -30,6 +46,9 @@ const toggleItemsInOrders = () => {
     element.addEventListener('click', (event) => {
     hide(event, `.basket-${element.dataset.basketid}`);
   });
+
+
+
 });
 
 
