@@ -1,6 +1,8 @@
 // Specific CSS for your home-page
 
-p{
+.home {
+
+  p{
   color:$green
 }
 
@@ -33,9 +35,16 @@ h4{
   background-size: cover;
   h1 {
     color: $light-gray;
-    font-size:45px;
+    font-size:42px;
   }
   p {
-    font-size: 30px;
+    font-size: 38px;
+    color: $green;
   }
+
+  .container {
+    margin-right: 5px;
+  }
+}
+
 }
