@@ -8,7 +8,27 @@
     <h1 class="text-center"> Check the available baskets!</h1>
   </div>
 
-  <% basket_array = ['https://media.istockphoto.com/photos/shopping-basket-with-variety-of-grocery-products-isolated-on-white-picture-id179223663?k=6&m=179223663&s=612x612&w=0&h=YErLythMZRtsl5tojyVWTSRkJYwh_01WyYNrmhXf6GE=', 'https://media02.stockfood.com/largepreviews/MzgxODE3MDQ5/12316679-Fresh-vegetables-in-basket-on-wooden-background.jpg']  %>
+  <% basket_array = %w[
+https://images.unsplash.com/photo-1458672584924-ed089c687402?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80
+
+https://images.unsplash.com/photo-1616109748085-7b89c0807927?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80
+
+https://images.unsplash.com/photo-1484848560771-c55afee65e0f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80
+
+https://images.unsplash.com/photo-1592455552754-22c10b36b452?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTd8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1588608468762-3b7843a5d5fb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTV8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1600626333392-59a20e646d97?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzB8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1512578101635-3d8804b016c2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzJ8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1510442515885-9a9c05e77b79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Njh8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1508431822127-707daa5c7f21?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1565809655810-3973da946da1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80
+]%>
 
   <div class="container pt-3">
     <div class="row">
@@ -25,7 +45,11 @@
               </div>
               <div class="product-info">
                 <div class="product-text">
-                  <h1>Harvest Basket</h1>
+                <% if basket.name = '' %>
+                  <h1>Basket #<%=basket.id%></h1>
+                <% else %>
+                  <h1><%= basket.name %></h1>
+                <% end %>
                   <h2>by <%= User.find(basket.user_id).email.split('@').first %></h2>
                   <p><%=basket.description%> </p>
                 </div>
