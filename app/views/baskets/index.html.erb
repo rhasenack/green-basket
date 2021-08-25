@@ -1,28 +1,71 @@
-<div class="container pt-3">
-  <div class="row">
-    <% @baskets.each do |basket| %>
-      <div class="col-md-12 col-sm-12 col-xl-6">
-        <div class="basket-card">
-          <div class="wrapper">
-            <div class="product-img">
-              <img src="https://images.unsplash.com/photo-1588821323157-9fc67e64659c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" height="321" width="250">
-            </div>
-            <div class="product-info">
-              <div class="product-text">
-                <h1>Harvest Basket</h1>
-                <h2>by <%= User.find(basket.user_id).email.split('@').first %></h2>
-                <p><%=basket.description%> </p>
+<div class="all-baskets">
+  <div class="container">
+    <h1 class="text-center mt-5">Are you a restaurant/shop? </h1>
+    <%= link_to new_basket_url() do  %>
+      <button class="btn btn-primary text-center mb-5" id='add-basket-button'>Add your own product!</button>
+    <% end %>
+    <br>
+    <h1 class="text-center"> Check the available baskets!</h1>
+  </div>
+
+  <% basket_array = %w[
+https://images.unsplash.com/photo-1458672584924-ed089c687402?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80
+
+https://images.unsplash.com/photo-1616109748085-7b89c0807927?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80
+
+https://images.unsplash.com/photo-1484848560771-c55afee65e0f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80
+
+https://images.unsplash.com/photo-1592455552754-22c10b36b452?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTd8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1588608468762-3b7843a5d5fb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTV8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1600626333392-59a20e646d97?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzB8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1512578101635-3d8804b016c2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzJ8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1510442515885-9a9c05e77b79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Njh8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1508431822127-707daa5c7f21?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1565809655810-3973da946da1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80
+]%>
+
+  <div class="container pt-3">
+    <div class="row">
+      <% @baskets.each do |basket| %>
+        <div class="col-md-12 col-sm-12 col-xl-6">
+          <div class="basket-card">
+            <div class="wrapper">
+              <div class="product-img">
+                <% if basket.photo.attached? %>
+                  <%= cl_image_tag basket.photo.key, height: 321, width: 250, crop: :fill %>
+                <% else%>
+                  <img src="<%=basket_array.sample%>" height="321" width="250">
+                <%end%>
               </div>
-              <div class="price-flex">
-                <p><%= basket.price %> R$</p>
-                <div class="product-price-btn">
-                  <button type="button">buy now</button>
+              <div class="product-info">
+                <div class="product-text">
+                <% if basket.name = '' %>
+                  <h1>Basket #<%=basket.id%></h1>
+                <% else %>
+                  <h1><%= basket.name %></h1>
+                <% end %>
+                  <h2>by <%= User.find(basket.user_id).email.split('@').first %></h2>
+                  <p><%=basket.description%> </p>
+                </div>
+                <div class="price-flex">
+                  <p><%= basket.price %> R$</p>
+                  <div class="product-price-btn">
+                    <%= link_to new_basket_order_url(basket) do  %>
+                    <button type="button">buy</button>
+                    <% end  %>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    <%end%>
+      <%end%>
+    </div>
   </div>
 </div>
