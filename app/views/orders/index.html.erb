@@ -41,7 +41,7 @@
               <p><%= order.price %></p>
               <p><%= order.status.capitalize %></p>
               <% if order.status.downcase == 'requested' %>
-                <%= link_to "accept", accept_0rder_path(order), remote: true %>
+                <%= link_to "accept", accept_order_path(order), remote: true %>
                 <%= link_to "decline", decline_order_path(order), remote: true %>
               <%elsif order.status.downcase == 'Confirmed'  %>
                 <%= link_to "cancel", cancel_order_path(order), remote: true %>
