@@ -1,28 +1,49 @@
-<div class="container pt-3">
-  <div class="row">
-    <% @baskets.each do |basket| %>
-      <div class="col-md-12 col-sm-12 col-xl-6">
-        <div class="basket-card">
-          <div class="wrapper">
-            <div class="product-img">
-              <img src="https://media02.stockfood.com/largepreviews/MzgxODE3MDQ5/12316679-Fresh-vegetables-in-basket-on-wooden-background.jpg" height="321" width="250">
-            </div>
-            <div class="product-info">
-              <div class="product-text">
-                <h1>Harvest Basket</h1>
-                <h2>by <%= User.find(basket.user_id).email.split('@').first %></h2>
-                <p><%=basket.description%> </p>
+<div class="all-baskets">
+  <div class="container">
+    <h1 class="text-center mt-5">Are you a restaurant/shop? </h1>
+    <%= link_to new_basket_url() do  %>
+      <button class="btn btn-primary text-center mb-5" id='add-basket-button'>Add your own product!</button>
+    <% end %>
+    <br>
+    <h1 class="text-center"> Check the available baskets!</h1>
+  </div>
+
+  <% basket_array = ['https://media.istockphoto.com/photos/shopping-basket-with-variety-of-grocery-products-isolated-on-white-picture-id179223663?k=6&m=179223663&s=612x612&w=0&h=YErLythMZRtsl5tojyVWTSRkJYwh_01WyYNrmhXf6GE=', 'https://media02.stockfood.com/largepreviews/MzgxODE3MDQ5/12316679-Fresh-vegetables-in-basket-on-wooden-background.jpg']  %>
+
+  <div class="container pt-3">
+    <div class="row">
+      <% @baskets.each do |basket| %>
+        <div class="col-md-12 col-sm-12 col-xl-6">
+          <div class="basket-card">
+            <div class="wrapper">
+              <div class="product-img">
+                <% if basket.photo.attached? %>
+                  <%= cl_image_tag basket.photo.key, height: 321, width: 250, crop: :fill %>
+                <% else%>
+                  <img src="<%=basket_array.sample%>" height="321" width="250">
+                <%end%>
               </div>
-              <div class="price-flex">
-                <p><%= basket.price %> R$</p>
-                <div class="product-price-btn">
-                  <button type="button">buy now</button>
+              <div class="product-info">
+                <div class="product-text">
+                  <h1>Harvest Basket</h1>
+                  <h2>by <%= User.find(basket.user_id).email.split('@').first %></h2>
+                  <p><%=basket.description%> </p>
+                </div>
+                <div class="price-flex">
+                  <p><%= basket.price %> R$</p>
+                  <div class="product-price-btn">
+                    <%= link_to new_basket_order_url(basket) do  %>
+                    <button type="button">buy</button>
+                    <% end  %>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    <%end%>
+      <%end%>
+    </div>
   </div>
+
+
 </div>
