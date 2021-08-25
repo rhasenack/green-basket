@@ -37,4 +37,14 @@ puts 'seeding orders...'
   order.save!
 end
 
+puts 'seeding reviews...'
+baskets = Basket.all
+users = User.all
+baskets.each do |basket|
+  review = Review.new(title: Faker::Team, content: Faker::Quotes, rating: 3)
+  review.basket = basket
+  review.user_id = User.all.sample.id
+  review.save!
+end
+
 puts 'done!'
