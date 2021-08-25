@@ -51,9 +51,11 @@
           }
 
           h3 {
+
             margin: 10px 10px 0;
             padding: 0;
-            color: $orange;
+            color: white;
+            text-shadow: blanchedalmond;
             text-align: center;
             font-size: 1.4em;
           }
@@ -84,7 +86,7 @@
             display: inline-block;
             text-decoration: none;
             font-weight: 900;
-            color: $gray;
+            color: white;
             padding: 5px;
             border: 1px solid $green;
           }
