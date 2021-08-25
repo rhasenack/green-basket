@@ -1,4 +1,4 @@
-  
+
 .card-form {
   margin: 0;
   padding: 0;
@@ -13,6 +13,7 @@
     display: flex;
     justify-content: space-between;
     margin-left: 200px;
+    margin-top: -250px;
 
     .card {
       position: relative;
@@ -25,6 +26,10 @@
         width: 300px;
         height: 200px;
         transition: 0.5s;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
       }
 
       .face.face1 {
@@ -37,19 +42,20 @@
         transform: translateY(100px);
 
         .content {
-          opacity: 0.2;
+          opacity: 0.4;
           transform: 0.5s;
 
           img {
-            max-width: 100px;
+            width: 100px;
+            height: 100px;
           }
 
           h3 {
-            margin: 10px 0 0;
+            margin: 10px 10px 0;
             padding: 0;
             color: $orange;
             text-align: center;
-            font-size: 1.5em;
+            font-size: 1.4em;
           }
         }
       }
@@ -96,6 +102,8 @@
       .face.face1 {
         background: $orange;
         transform: translateY(0);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
 
         .content {
           opacity: 1;
@@ -108,6 +116,8 @@
 
       .face.face2 {
         transform: translateY(0);
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
       }
     }
   }

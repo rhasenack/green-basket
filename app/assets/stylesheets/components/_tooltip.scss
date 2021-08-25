@@ -1,0 +1,66 @@
+.tooltips {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: $green;
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main {
+    height: 10vh;
+  }
+
+  .box {
+    flex-direction: row;
+
+    a {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      border-radius: 50%;
+      color: $gray;
+      margin: 0.3em;
+      background: $orange;
+      position: relative;
+      transition: all 0.4s;
+
+      i {
+        z-index: 20;
+        transition: all 0.4s;
+        color: $green;
+      }
+    }
+
+    a:hover {
+      transform: scale(0.9);
+
+      i {
+        color: $orange;
+      }
+    }
+
+    a::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      background: $green;
+      transform: scale(0);
+      transition: all 0.4s;
+    }
+
+    a:hover::after {
+      transform: scale(0.8);
+    }
+  }
+}
