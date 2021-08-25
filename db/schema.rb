@@ -49,13 +49,13 @@ ActiveRecord::Schema.define(version: 2021_08_24_211933) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "baskets_id"
+    t.bigint "basket_id"
     t.float "price"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.index ["baskets_id"], name: "index_orders_on_baskets_id"
+    t.index ["basket_id"], name: "index_orders_on_basket_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
