@@ -1,54 +1,56 @@
-<div class='container'>
-  <div class='row full-height justify-content-center'>
-    <div class='col-12 text-center align-self-center py-5'>
-      <div class='section pb-5 pt-5 pt-sm-2 text-center login'>
-      <h6 class='mb-0 pb-3'><span>Log In</span><span>Sign Up</span></h6>
-      <label class="switch">
-        <input type="checkbox" class='checkbox' data-url='<%=new_registration_path(resource_name)%>'>
-        <span class="slider round"></span>
-      </label>
-      <br>
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
-        <div class='card-3d-wrap mt-auto   pt-3'>
-          <div class='card-3d-wrapper'>
-            <div class='center-wrap front'>
-              <div class='section text-center'>
-                <h4 class='mb-3 pb-2'>Log In</h4>
-                <div class='container'>
-                  <div class='form-group'>
-                    <%= f.input :email,
+<div class="login">
+  <div class='container'>
+    <div class='row full-height justify-content-center'>
+      <div class='col-12 text-center align-self-top pt-5'>
+        <div class='section pb-1 pt-5 text-center'>
+        <h6 class='mb-0 pb-3'><span>Log In</span><span>Sign Up</span></h6>
+        <label class="switch">
+          <input type="checkbox" class='checkbox' data-url='<%=new_registration_path(resource_name)%>'>
+          <span class="slider round"></span>
+        </label>
+        <br>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <div class='card-3d-wrap mt-auto pt-5'>
+            <div class='card-3d-wrapper'>
+              <div class='center-wrap front'>
+                <div class='section text-center'>
+                  <h4 class='mb-3 pb-2'>Log In</h4>
+                  <div class='container'>
+                    <div class='form-group'>
+                      <%= f.input :email,
+                                    required: false,
+                                    autofocus: true,
+                                    name: 'logemail',
+                                    class: 'form-style border border-1 border-white rounded',
+                                    placeholder: "Your Email",
+                                    id: 'logemail',
+                                    input_html: { autocomplete: "email" } %>
+                      <i class='input-icon uil uil-at'></i>
+                    </div>
+                    <div class='form-group mt-2'>
+                      <%= f.input :password,
                                   required: false,
-                                  autofocus: true,
-                                  name: 'logemail',
+                                  name: 'logepass',
+                                  id: 'logepass',
                                   class: 'form-style border border-1 border-white rounded',
-                                  placeholder: "Your Email",
-                                  id: 'logemail',
-                                  input_html: { autocomplete: "email" } %>
-                    <i class='input-icon uil uil-at'></i>
+                                  placeholder: "Your Password",
+                                  input_html: { autocomplete: "current-password" } %>
+                      <i class='input-icon uil uil-lock-alt'></i>
+                    </div>
                   </div>
-                  <div class='form-group mt-2'>
-                    <%= f.input :password,
-                                required: false,
-                                name: 'logepass',
-                                id: 'logepass',
-                                class: 'form-style border border-1 border-white rounded',
-                                placeholder: "Your Password",
-                                input_html: { autocomplete: "current-password" } %>
-                    <i class='input-icon uil uil-lock-alt'></i>
+                  <%= f.input :remember_me, type: 'radio', class: 'forgot', as: :boolean if devise_mapping.rememberable? %>
+                  <%= render "devise/shared/links" %>
+                  <div class="form-actions">
+                    <%= f.button :submit, "Log in", class: 'btn-log mb-1 mt-3 rounded-3' %>
                   </div>
-                </div>
-                <%= f.input :remember_me, type: 'radio', class: 'forgot', as: :boolean if devise_mapping.rememberable? %>
-                <%= render "devise/shared/links" %>
-                <div class="form-actions">
-                  <%= f.button :submit, "Log in", class: 'btn-log mb-1 mt-3 rounded-3' %>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
 </div>

@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
  .login {
+
+  .row {
+    margin-top: -25px;
+  }
+
   h2 {
     color: #eeedf0;
   }
@@ -25,6 +30,7 @@
  }
 
  .sign {
+
   h2 {
     color: $gray;
   }
