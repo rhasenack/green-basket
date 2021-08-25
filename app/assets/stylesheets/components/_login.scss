@@ -152,6 +152,7 @@ input:checked + .slider:before {
    color: $green;
    background: $light-green;
    transition: 0.2s ease-in;
+   text-decoration: unset;
  }
 
  .center-wrap {
