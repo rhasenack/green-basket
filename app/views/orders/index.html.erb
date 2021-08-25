@@ -56,7 +56,7 @@
                     <p><%= order.user.email %></p>
                     <p><%= order.price %></p>
                     <p><strong><%= order.status.capitalize %></strong></p>
-                    <% if order.status.downcase == 'requested' && basket.status.downcase =='available' %>
+                    <% if order.status.downcase == 'requested' && (basket.status.downcase =='available' || basket.status.downcase =='reserved') %>
                       <%= link_to "accept", accept_order_path(order), remote: true %>
                       <%= link_to "decline", decline_order_path(order), remote: true %>
                     <%elsif order.status.downcase == 'confirmed' %>

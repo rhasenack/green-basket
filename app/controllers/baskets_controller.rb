@@ -1,5 +1,6 @@
 class BasketsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
+
   def index
     @baskets = Basket.all.where("status = 'available'")
   end
