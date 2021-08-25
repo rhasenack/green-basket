@@ -45,7 +45,7 @@ https://images.unsplash.com/photo-1565809655810-3973da946da1?ixid=MnwxMjA3fDB8MH
               </div>
               <div class="product-info">
                 <div class="product-text">
-                <% if basket.name = '' %>
+                <% if basket.name == '' || basket.name.include?('Faker') %>
                   <h1>Basket #<%=basket.id%></h1>
                 <% else %>
                   <h1><%= basket.name %></h1>
