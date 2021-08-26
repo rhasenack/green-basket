@@ -14,6 +14,14 @@ class BasketsController < ApplicationController
   def show
     @basket = Basket.find(params[:id])
     authorize @basket
+
+    @basket.geocode
+
+    @markers = [{
+        lat: @basket.latitude,
+        lng: @basket.longitude
+      }]
+
   end
 
   def new

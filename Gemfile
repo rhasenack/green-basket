@@ -72,4 +72,6 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'mini_racer', platforms: :ruby
 
 
+gem 'geocoder'
+
 gem 'pundit'
