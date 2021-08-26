@@ -5,3 +5,10 @@
 <p><%= @basket.price %></p>
 
 <%= link_to 'claim this basket', new_basket_order_path(@basket) %>
+
+
+<ul class="list-group">
+  <% @basket.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>

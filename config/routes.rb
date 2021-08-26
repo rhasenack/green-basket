@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :baskets, only: [:index, :show, :create, :new] do
     resources :orders, only: [:create, :new]
-  end
+    resources :reviews, only: [ :new, :create ]
+   end
+
+
+
 
   resources :orders, only: [:index] do
     member do
