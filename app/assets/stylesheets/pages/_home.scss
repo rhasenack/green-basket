@@ -25,8 +25,8 @@ h4{
 }
 
 .banner {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(https://images.unsplash.com/photo-1471248026681-35a45d5530a3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=759&q=80) left center/cover no-repeat padding-box;
-  filter: saturate(200%);
+  background: url(https://www.gcfb.org/wp-content/uploads/2019/04/hero-veggies-1.jpg) left center/cover no-repeat padding-box;
+  filter: saturate(120%);
   color:white;
   display: flex;
   align-items: center;
@@ -35,11 +35,11 @@ h4{
   background-size: cover;
   h1 {
     color: $light-gray;
-    font-size:36px;
+    font-size:38px;
   }
   p {
-    font-size: 34px;
-    color: $green;
+    font-size: 36px;
+    color: $less-gray
   }
 
   .container {
