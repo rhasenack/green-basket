@@ -1,11 +1,10 @@
-<h1>Baskets#show</h1>
+<!--<h1>Baskets#show</h1>
 
 <p><%= @basket.description %></p>
 <p><%= @basket.address %></p>
 <p><%= @basket.price %></p>
 <p><%= @basket.latitude %></p>
 <p><%= @basket.longitude %></p>
-<p>hello</p>
 
 <div id="map"
        style="width: 50%; height: 600px;"
@@ -13,12 +12,68 @@
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-
-<%= link_to 'claim this basket', new_basket_order_path(@basket) %>
-
-
 <ul class="list-group">
   <% @basket.reviews.each do |review| %>
     <li class="list-group-item"><%= review.content %></li>
   <% end %>
-</ul>
+</ul>-->
+<% basket_array = %w[
+https://images.unsplash.com/photo-1458672584924-ed089c687402?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80
+
+https://images.unsplash.com/photo-1616109748085-7b89c0807927?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80
+
+https://images.unsplash.com/photo-1484848560771-c55afee65e0f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80
+
+https://images.unsplash.com/photo-1592455552754-22c10b36b452?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTd8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1588608468762-3b7843a5d5fb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTV8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1600626333392-59a20e646d97?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzB8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1512578101635-3d8804b016c2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzJ8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1510442515885-9a9c05e77b79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Njh8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1508431822127-707daa5c7f21?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fGZvb2QlMjBiYXNrZXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+https://images.unsplash.com/photo-1565809655810-3973da946da1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80
+]%>
+
+<div class="basket-card-big">
+  <div class="wrapper">
+    <div class="product-img">
+      <% if @basket.photo.attached? %>
+                  <%= cl_image_tag @basket.photo.key, height: 530, width: 413, crop: :fill %>
+                <% else%>
+                  <img src="<%= basket_array.sample%>" height="530" width="413">
+                <%end%>
+    </div>
+    <div class="product-info">
+      <div class="product-text">
+        <% if @basket.name == '' %>
+          <h1>Basket #<%= @basket.id %></h1>
+        <% else %>
+          <h1><%= @basket.name %></h1>
+        <% end %>
+        <h2>by <%= User.find(@basket.user_id).email.split('@').first %></h2>
+        <h2><%= @basket.address %></h2>
+        <p><%=@basket.description%> </p>
+      </div>
+      <div class="price-flex">
+        <p><%= @basket.price %> R$</p>
+        <div class="product-price-btn">
+          <%= link_to  new_basket_order_path(@basket) do %>
+            <button type="button">Buy</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="product-img">
+      <div id="map"
+        style="width: 413px; height: 530px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
+</div>
