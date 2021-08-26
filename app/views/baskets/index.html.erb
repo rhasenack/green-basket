@@ -1,12 +1,21 @@
 <div class="all-baskets">
-  <div class="container">
-    <h1 class="text-center mt-5">Are you a restaurant/shop? </h1>
-    <%= link_to new_basket_url() do  %>
-      <button class="btn-sign mb-1 mt-3 rounded-3" id='add-basket-button'>Add your own product!</button>
-    <% end %>
-    <br>
-    <h1 class="text-center"> Check the available baskets!</h1>
-  </div>
+
+  <% if current_user.restaurant? %>
+    <div class="container">
+      <br>
+      <% if @baskets.size == 0 %>
+        <h1 class="text-center"> You dont have any published baskets yet!</h1>
+        <%= link_to new_basket_url() do  %>
+          <button class="btn-sign mb-1 mt-3 rounded-3" id='add-basket-button'>Add a basket!</button>
+        <% end %>
+      <% else %>
+        <%= link_to new_basket_url() do  %>
+          <button class="btn-sign mb-1 mt-3 rounded-3" id='add-basket-button'>Add a new Basket!</button>
+        <% end %>
+        <h1 class="text-center"> Check your published baskets</h1>
+      <% end %>
+    </div>
+  <% end %>
 
   <% basket_array = %w[
 https://images.unsplash.com/photo-1458672584924-ed089c687402?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80
@@ -56,9 +65,15 @@ https://images.unsplash.com/photo-1565809655810-3973da946da1?ixid=MnwxMjA3fDB8MH
                 <div class="price-flex">
                   <p><%= basket.price %> R$</p>
                   <div class="product-price-btn">
-                    <%= link_to new_basket_order_url(basket) do  %>
-                    <button type="button">buy</button>
-                    <% end  %>
+                    <% if current_user.restaurant?%>
+                      <%= link_to basket_url(basket) do  %>
+                      <button type="button">details</button>
+                      <% end  %>
+                    <% else %>
+                      <%= link_to new_basket_order_url(basket) do  %>
+                      <button type="button">buy</button>
+                      <% end  %>
+                    <% end %>
                   </div>
                 </div>
               </div>

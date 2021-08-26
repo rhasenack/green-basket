@@ -1,19 +1,21 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all.where("user_id = #{current_user.id}")
-    @baskets = Basket.all.where("user_id = #{current_user.id}")
+    @orders = policy_scope(Order).where("user_id = #{current_user.id}")
+    @baskets = policy_scope(Basket).where("user_id = #{current_user.id}")
   end
 
   def new
     @basket = Basket.find(params[:basket_id])
     @order = Order.new
+    authorize @order
     create
   end
 
   def create
     basket = Basket.find(params[:basket_id])
     @order = Order.new
+    authorize @order
     @order.price = basket.price
     @order.status = 'requested'
     @order.basket_id = basket.id
