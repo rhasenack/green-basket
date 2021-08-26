@@ -3,22 +3,32 @@
     <h3 class='navbar__item'>GREEN<i class='fas fa-leaf'></i>BASKET</h3>
   <% end%>
   <div class='d-flex justify-content-end'>
-    <%= link_to baskets_path,class: 'navbar__item', :action => 'go' do %>
-      <i class='fas fa-shopping-basket navbar__icon align-self-center text-center'></i>
-    <% end%>
-    <%= link_to orders_path,class: 'navbar__item', :action => 'go' do %>
-      <i class='fas fa-heart navbar__icon align-self-center text-center'></i>
-    <% end%>
-    <% if current_user %>
-      <%= link_to new_user_session_path,class: 'navbar__item', :action => 'go' do %>
-        <i class='fas fa-bars navbar__icon align-self-center text-center'></i>
-      <% end%>
+    <% if user_signed_in? %>
+      <% if current_user.restaurant? %>
+        <%= link_to orders_path,class: 'navbar__item', :action => 'go' do %>
+          <i class='fas fa-shopping-basket navbar__icon align-self-center text-center'></i>
+        <% end%>
+        <%= link_to baskets_path,class: 'navbar__item', :action => 'go' do %>
+          <i class='fas fa-plus navbar__icon align-self-center text-center'></i>
+        <% end%>
+        <i class='fas fa-bars navbar__item navbar__icon align-self-center text-center' onclick="openNav()"></i>
+      <% else %>
+        <%= link_to baskets_path,class: 'navbar__item', :action => 'go' do %>
+          <i class='fas fa-shopping-basket navbar__icon align-self-center text-center'></i>
+        <% end%>
+        <%= link_to orders_path,class: 'navbar__item', :action => 'go' do %>
+          <i class='fas fa-heart navbar__icon align-self-center text-center'></i>
+        <% end%>
+        <i class='fas fa-bars navbar__item navbar__icon align-self-center text-center' onclick="openNav()"></i>
+      <% end %>
     <% else %>
+      <%= link_to baskets_path,class: 'navbar__item', :action => 'go' do %>
+        <i class='fas fa-shopping-basket navbar__icon align-self-center text-center'></i>
+      <% end%>
       <%= link_to new_user_session_path,class: 'navbar__item', :action => 'go' do %>
         <i class='fas fa-user navbar__icon align-self-center text-center'></i>
       <% end%>
     <% end %>
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
   </div>
 </nav>
 
