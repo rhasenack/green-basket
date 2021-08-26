@@ -22,7 +22,7 @@ end
 # BASKETS SEED
 puts 'seeding baskets...'
 10.times do
-  basket = Basket.new(name: Faker::Artist.name, description: Faker::Quote.famous_last_words, address: Faker::Address.street_address, price: Faker::Number.between(from: 10, to: 10) , stock: 1)
+  basket = Basket.new(name: Faker::Artist.name, description: Faker::Quote.famous_last_words, address: 'R. Jericó, 193, Vila Madalena, São Paulo', price: Faker::Number.between(from: 10, to: 10) , stock: 1)
   basket.user_id = User.all.sample.id
   basket.save!
 end
