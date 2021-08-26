@@ -8,6 +8,7 @@
   -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+
 }
 
 .product-img {
@@ -42,8 +43,6 @@
   font-size: 32px;
   color: $green;
 }
-
-.product-text h1,
 
 .product-price-btn p {
   font-family: 'Bentham', serif;
@@ -98,6 +97,128 @@ span {
 .product-price-btn button {
   height: 38px;
   width: 135px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $light-gray;
+  background-color: $green;
+  cursor: pointer;
+  outline: none;
+}
+
+.product-price-btn button:hover {
+  background-color: $pink;
+}
+}
+
+.basket-card-big {
+
+  .wrapper {
+  height: 529px;
+  width: 1239px;
+  margin: 50px auto;
+  border-radius: 7px 7px 7px 7px;
+  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+
+}
+
+.product-img {
+  float: left;
+  height: 529px;
+  width: 413px;
+  object-fit: cover;
+
+  img {
+    border-radius: 7px 0 0 7px;
+    object-fit: cover;
+  }
+
+  #map {
+    border-radius: 0 7px 7px 0;
+  }
+}
+
+
+
+.product-info {
+  float: left;
+  height: 529px;
+  width: 413px;
+  background-color: $light-gray
+}
+
+.product-text {
+  height: 381px;
+  width: 413px;
+}
+
+.product-text h1 {
+  margin: 0 0 0 30px;
+  padding-top: 40px;
+  font-size: 32px;
+  color: $green;
+}
+
+.product-price-btn p {
+  font-family: 'Bentham', serif;
+}
+
+.product-text h2 {
+  margin: 0 0 36px 30px;
+  font-size: 12px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #d2d2d2;
+  letter-spacing: 0.2em;
+}
+
+.product-text p {
+  height: 206px;
+  margin: -20px 0 0 25px;
+  font-family: 'Playfair Display', serif;
+  color: #8d8d8d;
+  line-height: 1.7em;
+  font-size: 14px;
+  font-weight: lighter;
+  overflow: hidden;
+}
+
+
+.product-price-btn p {
+  font-family: 'Trocchi', serif;
+  font-size: 18px;
+  font-weight: lighter;
+  color: #474747;
+}
+
+span {
+  display: inline-block;
+  height: 63px;
+  font-family: 'Suranna', serif;
+  font-size: 20px;
+}
+
+.price-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  p{
+    margin: 0px;
+    font-family: 'Trocchi', serif;
+  }
+}
+
+.product-price-btn button {
+  height: 63px;
+  width: 222px;
   box-sizing: border-box;
   border: transparent;
   border-radius: 60px;
