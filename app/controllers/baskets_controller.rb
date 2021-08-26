@@ -4,6 +4,7 @@ class BasketsController < ApplicationController
   def index
     if user_signed_in? && current_user.restaurant?
       @baskets = policy_scope(Basket).where("user_id = #{current_user.id}")
+
     end
     if !user_signed_in? || current_user.consumer?
       @baskets = policy_scope(Basket).order(created_at: :desc)
