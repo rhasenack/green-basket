@@ -2,10 +2,10 @@ class BasketsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    if current_user.restaurant?
+    if user_signed_in? && current_user.restaurant?
         @baskets = policy_scope(Basket).where("user_id = #{current_user.id}")
     end
-    if current_user.consumer?
+    if !user_signed_in? || current_user.consumer?
       @baskets = policy_scope(Basket).order(created_at: :desc)
     end
   end
