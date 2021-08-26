@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'faker'
+
 
 # USERS SEED
 puts 'seeding users...'
@@ -13,13 +15,14 @@ puts 'seeding users...'
   user = User.new(email: Faker::Internet.email)
   user.password = '#$taawktljasktlw4aaglj'
   user.encrypted_password = '#$taawktljasktlw4aaglj'
+  user.role = 'Restaurant'
   user.save!
 end
 
 # BASKETS SEED
 puts 'seeding baskets...'
 10.times do
-  basket = Basket.new(name: Faker::Artist, description: Faker::Quote , address: Faker::Address.street_address, price: Faker::Number.between(from: 10, to: 10) , stock: 1)
+  basket = Basket.new(name: Faker::Artist.name, description: Faker::Quote.famous_last_words, address: Faker::Address.street_address, price: Faker::Number.between(from: 10, to: 10) , stock: 1)
   basket.user_id = User.all.sample.id
   basket.save!
 end

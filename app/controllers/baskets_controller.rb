@@ -3,7 +3,8 @@ class BasketsController < ApplicationController
 
   def index
     if user_signed_in? && current_user.restaurant?
-        @baskets = policy_scope(Basket).where("user_id = #{current_user.id}")
+      @baskets = policy_scope(Basket).where("user_id = #{current_user.id}")
+
     end
     if !user_signed_in? || current_user.consumer?
       @baskets = policy_scope(Basket).order(created_at: :desc)
@@ -22,7 +23,7 @@ class BasketsController < ApplicationController
 
   def create
     @basket = Basket.new(basket_params)
-    @basket.original_stock = @bakset.stock
+    @basket.original_stock = @basket.stock
     authorize @basket
     # IF USER IS LOGGED IN
     @basket.user_id = current_user.id
@@ -36,6 +37,6 @@ class BasketsController < ApplicationController
   private
 
   def basket_params
-    params.require(:basket).permit(:description, :address, :price, :stock, :photo)
+    params.require(:basket).permit(:description, :address, :price, :stock, :photo, :name)
   end
 end
