@@ -22,6 +22,7 @@ class BasketsController < ApplicationController
 
   def create
     @basket = Basket.new(basket_params)
+    @basket.original_stock = @bakset.stock
     authorize @basket
     # IF USER IS LOGGED IN
     @basket.user_id = current_user.id
