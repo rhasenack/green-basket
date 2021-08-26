@@ -18,5 +18,8 @@
           <i class='fas fa-user navbar__icon align-self-center text-center'></i>
         <% end%>
       <% end %>
+        <%= link_to destroy_user_session_path,class: 'navbar__item', :method => :delete , :action => 'go' do %>
+          <i class='fas fa-user navbar__icon align-self-center text-center'></i>
+          <%end%>
     </div>
 </nav>
