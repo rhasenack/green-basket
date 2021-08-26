@@ -1,25 +1,45 @@
 <nav class='d-flex justify-content-between align-items-center navbar'>
-    <%= link_to root_path,class: 'navbar__item', :action => 'go' do %>
-      <h3 class='navbar__item'>GREEN<i class='fas fa-leaf'></i>BASKET</h3>
+  <%= link_to root_path,class: 'navbar__item', :action => 'go' do %>
+    <h3 class='navbar__item'>GREEN<i class='fas fa-leaf'></i>BASKET</h3>
+  <% end%>
+  <div class='d-flex justify-content-end'>
+    <%= link_to baskets_path,class: 'navbar__item', :action => 'go' do %>
+      <i class='fas fa-shopping-basket navbar__icon align-self-center text-center'></i>
     <% end%>
-    <div class='d-flex justify-content-end'>
-      <%= link_to baskets_path,class: 'navbar__item', :action => 'go' do %>
-        <i class='fas fa-shopping-basket navbar__icon align-self-center text-center'></i>
+    <%= link_to orders_path,class: 'navbar__item', :action => 'go' do %>
+      <i class='fas fa-heart navbar__icon align-self-center text-center'></i>
+    <% end%>
+    <% if current_user %>
+      <%= link_to new_user_session_path,class: 'navbar__item', :action => 'go' do %>
+        <i class='fas fa-bars navbar__icon align-self-center text-center'></i>
       <% end%>
-      <%= link_to orders_path,class: 'navbar__item', :action => 'go' do %>
-        <i class='fas fa-heart navbar__icon align-self-center text-center'></i>
+    <% else %>
+      <%= link_to new_user_session_path,class: 'navbar__item', :action => 'go' do %>
+        <i class='fas fa-user navbar__icon align-self-center text-center'></i>
       <% end%>
-      <% if current_user %>
-        <%= link_to new_user_session_path,class: 'navbar__item', :action => 'go' do %>
-          <i class='fas fa-bars navbar__icon align-self-center text-center'></i>
-        <% end%>
-      <% else %>
-        <%= link_to new_user_session_path,class: 'navbar__item', :action => 'go' do %>
-          <i class='fas fa-user navbar__icon align-self-center text-center'></i>
-        <% end%>
-      <% end %>
-        <%= link_to destroy_user_session_path,class: 'navbar__item', :method => :delete , :action => 'go' do %>
-          <i class='fas fa-user navbar__icon align-self-center text-center'></i>
-          <%end%>
-    </div>
+    <% end %>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+  </div>
 </nav>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginRight = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginRight= "0";
+    document.body.style.backgroundColor = "white";
+  }
+</script>
