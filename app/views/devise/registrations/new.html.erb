@@ -22,21 +22,18 @@
                                     required: true,
                                     autofocus: true,
                                     class: 'form-style border border-1 border-white rounded',
-                                    placeholder: "Your Email",
-                                    input_html: { autocomplete: "email" } %>
+                                    placeholder: "Your Email" %>
                       <i class='input-icon uil uil-at'></i>
                     </div>
                     <div class='form-group mt-2'>
                       <%= f.input :password,
                                   required: true,
-                                  input_html: { autocomplete: "new-password" },
                                   placeholder: "Your Password" %>
                       <i class='input-icon uil uil-lock-alt'></i>
                     </div>
                     <div class='form-group mt-2'>
                       <%= f.input :password_confirmation,
                                   required: true,
-                                  input_html: { autocomplete: "new-password" },
                                   placeholder: "Your Password" %>
                       <i class='input-icon uil uil-lock-alt'></i>
                     </div>
