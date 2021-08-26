@@ -1,19 +1,21 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all.where("user_id = #{current_user.id}")
-    @baskets = Basket.all.where("user_id = #{current_user.id}")
+    @orders = policy_scope(Order).where("user_id = #{current_user.id}")
+    @baskets = policy_scope(Basket).where("user_id = #{current_user.id}")
   end
 
   def new
     @basket = Basket.find(params[:basket_id])
     @order = Order.new
+    authorize @order
     create
   end
 
   def create
     basket = Basket.find(params[:basket_id])
     @order = Order.new
+    authorize @order
     @order.price = basket.price
     @order.status = 'requested'
     @order.basket_id = basket.id
@@ -27,7 +29,7 @@ class OrdersController < ApplicationController
 
   def decline
     @order = Order.find(params[:id])
-    @order.status = 'Cancelled'
+    @order.status = 'Declined'
     @order.save
     basket = @order.basket
     basket.status = 'available'
@@ -40,7 +42,12 @@ class OrdersController < ApplicationController
     @order.status = 'Confirmed'
     @order.save
     basket = @order.basket
-    basket.status = 'reserved'
+    basket.stock -= @order.quantity
+    if basket.stock <= 0
+      basket.status = 'unavailable'
+    else
+      basket.status = 'available'
+    end
     basket.save
   end
 
@@ -49,7 +56,12 @@ class OrdersController < ApplicationController
     @order.status = 'Cancelled'
     @order.save
     basket = @order.basket
-    basket.status = 'unavailable'
+    basket.stock += 1
+    if basket.stock <= 0
+      basket.status = 'unavailable'
+    else
+      basket.status = 'available'
+    end
     basket.save
   end
 end

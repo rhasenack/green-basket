@@ -3,73 +3,75 @@
   <h1>DASHBOARD</h1>
   <p><%= current_user.email %></p>
 
-<div class="orders">
-  <h2>My Orders</h2>
-  <% if @orders.count == 0 %>
-    <p>You don't have any order yet...</p>
-    <p><%= link_to 'Check out the available baskets!', baskets_path %></p>
-  <% else %>
-  <div class="filter-buttons">
-    <button class="btn btn-outline-primary" id="request-btn" data-toggle="button" aria-pressed="true" autocomplete="off"> Requested</button>
-    <button class="btn btn-outline-primary" id="confirm-btn" data-toggle="button" aria-pressed="true" autocomplete="off"> Confirmed</button>
-    <button class="btn btn-outline-primary" id="cancel-btn" data-toggle="button" aria-pressed="true" autocomplete="off"> Cancelled</button>
-  </div>
-    <div class="orders-flex-box">
-        <% @orders.each do |order| %>
-          <div class="orders-card <%= order.status.capitalize %>">
-            <div class="card-content">
-              <h2><%= order.id %></h2>
-              <p>R$ <%= order.price %></p>
-              <p><strong><%= order.status.capitalize %></strong></p>
-            </div>
-          </div>
-        <% end  %>
-    </div>
-  <% end  %>
-</div>
-
-
-<div class="baskets">
-  <h2>My Baskets</h2>
-  <% if @baskets.count == 0 %>
-    <p>You don't have any published baskets yet.</p>
-    <p><%= link_to 'Publish a new basket!', new_basket_path %></p>
-  <% else %>
-
+<% if current_user.consumer? %>
+  <div class="orders">
+    <h2>My Orders</h2>
+    <% if @orders.count == 0 %>
+      <p>You don't have any order yet...</p>
+      <p><%= link_to 'Check out the available baskets!', baskets_path %></p>
+    <% else %>
     <div class="filter-buttons">
-      <button class="btn btn-outline-primary" id="reserved-btn" data-toggle="button" aria-pressed="true" autocomplete="off"> Reserved</button>
-      <button class="btn btn-outline-primary" id="available-btn" data-toggle="button" aria-pressed="true" autocomplete="off"> Available</button>
+      <button class="btn btn-outline-primary" id="request-btn" data-toggle="button" aria-pressed="true" autocomplete="off"> Requested</button>
+      <button class="btn btn-outline-primary" id="confirm-btn" data-toggle="button" aria-pressed="true" autocomplete="off"> Confirmed</button>
+      <button class="btn btn-outline-primary" id="cancel-btn" data-toggle="button" aria-pressed="true" autocomplete="off"> Cancelled</button>
     </div>
-  <div class="orders-flex-box">
-    <% @baskets.each do |basket| %>
-      <div class="basket-card <%= basket.status.capitalize %>">
-        <div class="card-content">
-          <h2><%= basket.id %></h2>
-          <p>R$ <%= basket.price %></p>
-          <p>Stock: <%= basket.stock %></p>
-          <p><strong><%= basket.status.capitalize %></strong></p>
-            <button class="btn btn-block btn-outline-primary show-orders-button" data-toggle="button" data-basketId ='<%=basket.id%>' aria-pressed="false" autocomplete="off"><strong><%=basket.orders.count%></strong> orders</button>
-          <div class="basket-orders">
-              <% basket.orders.each do |order| %>
-                <div class="basket-orders-card basket-<%=basket.id%> d-none" >
-                    <h2><%= order.id %></h2>
-                    <p><%= order.user.email %></p>
-                    <p><%= order.price %></p>
-                    <p><strong><%= order.status.capitalize %></strong></p>
-                    <% if order.status.downcase == 'requested' && (basket.status.downcase =='available' || basket.status.downcase =='reserved') %>
-                      <%= link_to "accept", accept_order_path(order), remote: true %>
-                      <%= link_to "decline", decline_order_path(order), remote: true %>
-                    <%elsif order.status.downcase == 'confirmed' %>
-                      <%= link_to "cancel", cancel_order_path(order), remote: true %>
-                    <%  end  %>
-                </div>
-              <% end %>
-           </div>
-        </div>
+      <div class="orders-flex-box">
+          <% @orders.each do |order| %>
+            <div class="orders-card <%= order.status.capitalize %>">
+              <div class="card-content">
+                <h2><%= order.id %></h2>
+                <p>R$ <%= order.price %></p>
+                <p><strong><%= order.status.capitalize %></strong></p>
+              </div>
+            </div>
+          <% end  %>
       </div>
     <% end  %>
   </div>
-<% end  %>
-</div>
+
+<% else%>
+  <div class="baskets">
+    <h2>My Baskets</h2>
+    <% if @baskets.count == 0 %>
+      <p>You don't have any published baskets yet.</p>
+      <p><%= link_to 'Publish a new basket!', new_basket_path %></p>
+    <% else %>
+
+      <div class="filter-buttons">
+        <button class="btn btn-outline-primary" id="reserved-btn" data-toggle="button" aria-pressed="true" autocomplete="off"> Reserved</button>
+        <button class="btn btn-outline-primary" id="available-btn" data-toggle="button" aria-pressed="true" autocomplete="off"> Available</button>
+      </div>
+    <div class="orders-flex-box">
+      <% @baskets.each do |basket| %>
+        <div class="basket-card <%= basket.status.capitalize %>">
+          <div class="card-content">
+            <h2><%= basket.id %></h2>
+            <p>R$ <%= basket.price %></p>
+            <p>Stock: <%= basket.stock %></p>
+            <p><strong><%= basket.status.capitalize %></strong></p>
+              <button class="btn btn-block btn-outline-primary show-orders-button" data-toggle="button" data-basketId ='<%=basket.id%>' aria-pressed="false" autocomplete="off"><strong><%=basket.orders.count%></strong> orders</button>
+            <div class="basket-orders">
+                <% basket.orders.each do |order| %>
+                  <div class="basket-orders-card basket-<%=basket.id%> d-none" >
+                      <h2><%= order.id %></h2>
+                      <p><%= order.user.email %></p>
+                      <p><%= order.price %></p>
+                      <p><strong><%= order.status.capitalize %></strong></p>
+                      <% if order.status.downcase == 'requested' && (basket.status.downcase =='available' || basket.status.downcase =='reserved') %>
+                        <%= link_to "accept", accept_order_path(order), remote: true %>
+                        <%= link_to "decline", decline_order_path(order), remote: true %>
+                      <%elsif order.status.downcase == 'confirmed' %>
+                        <%= link_to "cancel", cancel_order_path(order), remote: true %>
+                      <%  end  %>
+                  </div>
+                <% end %>
+             </div>
+          </div>
+        </div>
+      <% end  %>
+    </div>
+  <% end  %>
+  </div>
+<% end %>
 
 </div>
