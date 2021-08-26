@@ -1,6 +1,6 @@
 <div class="all-baskets">
 
-  <% if current_user.restaurant? %>
+  <% if user_signed_in? && current_user.restaurant? %>
     <div class="container">
       <br>
       <% if @baskets.size == 0 %>
@@ -65,13 +65,13 @@ https://images.unsplash.com/photo-1565809655810-3973da946da1?ixid=MnwxMjA3fDB8MH
                 <div class="price-flex">
                   <p><%= basket.price %> R$</p>
                   <div class="product-price-btn">
-                    <% if current_user.restaurant?%>
+                    <% if user_signed_in? && current_user.restaurant?%>
                       <%= link_to basket_url(basket) do  %>
                       <button type="button">details</button>
                       <% end  %>
                     <% else %>
-                      <%= link_to new_basket_order_url(basket) do  %>
-                      <button type="button">buy</button>
+                      <%= link_to basket_url(basket) do  %>
+                      <button type="button">details</button>
                       <% end  %>
                     <% end %>
                   </div>

@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 
   def decline
     @order = Order.find(params[:id])
-    @order.status = 'Cancelled'
+    @order.status = 'Declined'
     @order.save
     basket = @order.basket
     basket.status = 'available'
@@ -42,7 +42,12 @@ class OrdersController < ApplicationController
     @order.status = 'Confirmed'
     @order.save
     basket = @order.basket
-    basket.status = 'reserved'
+    basket.stock -= @order.quantity
+    if basket.stock <= 0
+      basket.status = 'unavailable'
+    else
+      basket.status = 'available'
+    end
     basket.save
   end
 
@@ -51,7 +56,12 @@ class OrdersController < ApplicationController
     @order.status = 'Cancelled'
     @order.save
     basket = @order.basket
-    basket.status = 'unavailable'
+    basket.stock += 1
+    if basket.stock <= 0
+      basket.status = 'unavailable'
+    else
+      basket.status = 'available'
+    end
     basket.save
   end
 end
