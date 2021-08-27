@@ -1,6 +1,10 @@
 .dashboard-container {
-  margin: 30px;
-  height: 539px;
+  //margin: 30px;
+  height: calc(100vh - 122px);
+
+  .baskets {
+    height: 500px;
+  }
 
   button {
     height: 45px;
@@ -160,7 +164,7 @@ h1 {
   font-size: 50px;
   justify-content: center;
   text-align: center;
-  margin-top: 60px;
+  padding-top: 30px;
 }
 
 
