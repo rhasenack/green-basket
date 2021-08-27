@@ -6,9 +6,12 @@
     <% if user_signed_in? %>
       <% if current_user.restaurant? %>
         <%= link_to orders_path,class: 'navbar__item', :action => 'go' do %>
-          <i class='fas fa-shopping-basket navbar__icon align-self-center text-center'></i>
+          <i class='fas fa-shopping-cart navbar__icon align-self-center text-center'></i>
         <% end%>
         <%= link_to baskets_path,class: 'navbar__item', :action => 'go' do %>
+          <i class='fas fa-shopping-basket navbar__icon align-self-center text-center'></i>
+        <% end%>
+        <%= link_to new_basket_path,class: 'navbar__item', :action => 'go' do %>
           <i class='fas fa-plus navbar__icon align-self-center text-center'></i>
         <% end%>
         <i class='fas fa-bars navbar__item navbar__icon align-self-center text-center' onclick="openNav()"></i>
@@ -16,8 +19,11 @@
         <%= link_to baskets_path,class: 'navbar__item', :action => 'go' do %>
           <i class='fas fa-shopping-basket navbar__icon align-self-center text-center'></i>
         <% end%>
-        <%= link_to orders_path,class: 'navbar__item', :action => 'go' do %>
+        <%= link_to favourites_path,class: 'navbar__item', :action => 'go' do %>
           <i class='fas fa-heart navbar__icon align-self-center text-center'></i>
+        <% end%>
+        <%= link_to orders_path,class: 'navbar__item', :action => 'go' do %>
+          <i class='fas fa-shopping-cart navbar__icon align-self-center text-center'></i>
         <% end%>
         <i class='fas fa-bars navbar__item navbar__icon align-self-center text-center' onclick="openNav()"></i>
       <% end %>
