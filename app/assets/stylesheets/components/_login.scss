@@ -183,9 +183,13 @@ input:checked + .slider:before {
 }
 
 .password-forgot {
-  height: 631px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
+}
+
+.card-3d-wrapper {
+  margin: 30px;
 }
