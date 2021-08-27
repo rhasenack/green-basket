@@ -1,8 +1,35 @@
 .dashboard-container {
   margin: 30px;
   height: 539px;
+
+  button {
+    height: 45px;
+    width: 400px;
+    justify-content: center;
+    box-sizing: border-box;
+    border: transparent;
+    border-radius: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $light-gray;
+    background-color: $green;
+    cursor: pointer;
+    outline: none;
+  }
+
+  button:hover {
+    background-color: $orange;
+    color: $green;
+    transition: 0.5s;
+  }
   p {
-    margin-bottom: 8px;
+    margin: 150px 0 150px 0;
+    text-align: center;
+    font-size: 80px;
   }
 
   .filter-buttons {

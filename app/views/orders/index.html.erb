@@ -28,7 +28,9 @@ https://images.unsplash.com/photo-1565809655810-3973da946da1?ixid=MnwxMjA3fDB8MH
     <h1>My Green Orders</h1>
     <% if @orders.count == 0 %>
       <p>You don't have any order yet...</p>
-      <p><%= link_to 'Check out the available baskets!', baskets_path %></p>
+      <%= link_to baskets_path, class: 'btngui', :action => 'go' do %>
+        <button>Check out the available baskets!</button>
+      <% end%>
     <% else %>
     <div class="filter-buttons">
 
