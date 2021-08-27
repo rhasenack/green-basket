@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   resources :baskets, only: [:index, :show, :create, :new] do
     resources :orders, only: [:create, :new]
     resources :reviews, only: [ :new, :create ]
+    resources :favourites, only: [:new, :create]
    end
 
-
-
+  get 'favourites', to: 'baskets#favourites'
+  resources :favourites, only: [:destroy]
 
   resources :orders, only: [:index] do
     member do
