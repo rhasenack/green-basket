@@ -9,6 +9,7 @@ class BasketsController < ApplicationController
     if !user_signed_in? || current_user.consumer?
       @baskets = policy_scope(Basket).order(created_at: :desc)
     end
+    # raise
   end
 
   def show
@@ -40,6 +41,17 @@ class BasketsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def favourites
+    @favourite_baskets = []
+
+    current_user.favourites.each do |favourite|
+      basket = Basket.find(favourite.basket_id)
+      authorize basket
+      @favourite_baskets << basket
+    end
+
   end
 
   private

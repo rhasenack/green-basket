@@ -1,2 +1,17 @@
 // Import page-specific CSS files here.
 @import "home";
+
+
+
+.wrapper {
+  position: relative;
+}
+.bookmark-heart {
+  position: absolute;
+  left: 465px;
+  top: 20px;
+  color: black;
+    a{
+      color: black;
+    }
+}
