@@ -5,14 +5,20 @@
       <br>
       <% if @baskets.size == 0 %>
         <h1 class="text-center"> You dont have any published baskets yet!</h1>
-        <%= link_to new_basket_url() do  %>
-          <button class="btn-sign mb-1 mt-3 rounded-3" id='add-basket-button'>Add a basket!</button>
-        <% end %>
+        <div class="container text-center">
+          <%= link_to new_basket_url() do  %>
+            <button class="btn-sign mb-1 mt-3 rounded-3 text-center" id='add-basket-button'>Add a basket!</button>
+          <% end %>
+        </div>
+
       <% else %>
+      <div class="container text-center">
         <%= link_to new_basket_path do  %>
-          <button class="btn-sign mb-1 mt-3 rounded-3" id='add-basket-button'>Add a new Basket!</button>
-        <% end %>
-        <h1 class="text-center"> Check your published baskets</h1>
+            <button class="btn-sign mb-1 mt-3 rounded-3" id='add-basket-button'>Add a new Basket!</button>
+          <% end %>
+          <h1 class="text-center"> Check your published baskets</h1>
+      </div>
+
       <% end %>
     </div>
   <% end %>
