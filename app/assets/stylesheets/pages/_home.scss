@@ -11,12 +11,15 @@ h1 {
 }
 
 h2{
-  color:white;
+  color:$green;
+  font-weight: bold;
+  font-size: 50px;
+  margin-top: 117px;
+  margin-bottom: -40px;
 }
 
 h4{
   color:$green
-
 }
 
 .card img {
@@ -46,4 +49,34 @@ h4{
   }
 }
 
+.btn-home {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+ button {
+  height: 45px;
+  width: 135px;
+  text-align: center;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $light-gray;
+  background-color: $green;
+  cursor: pointer;
+  outline: none;
+}
+
+ button:hover {
+  background-color: $light-green;
+  color: $green;
+  transition: 0.5s;
+
+}
 }
