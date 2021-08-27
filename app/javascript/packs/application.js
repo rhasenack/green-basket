@@ -29,7 +29,7 @@ import "bootstrap";
 import { toggleItemsInOrders } from './orders_select';
 import { initMapbox } from '../plugins/init_mapbox';
 import { loadDynamicBannerText } from '../components/banner';
-
+import { initAutocomplete } from '../plugins/init_autocomplete.js'
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import {switchLogic} from './login'
@@ -40,7 +40,6 @@ document.addEventListener('turbolinks:load', () => {
   switchLogic();
   toggleItemsInOrders();
   initMapbox();
+  initAutocomplete();
   loadDynamicBannerText();
-
-
 });

@@ -69,7 +69,7 @@ https://images.unsplash.com/photo-1565809655810-3973da946da1?ixid=MnwxMjA3fDB8MH
     <h2>My Baskets</h2>
     <% if @baskets.count == 0 %>
       <p>You don't have any published baskets yet.</p>
-      <p><%= link_to 'Publish a new basket!', new_basket_path, data: { turbolinks: false } %></p>
+      <p><%= link_to 'Publish a new basket!', new_basket_path %></p>
     <% else %>
 
       <div class="filter-buttons">
