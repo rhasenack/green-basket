@@ -2,6 +2,7 @@
 
 .home {
 
+position: relative;
   p{
   color:$green
 }
@@ -35,19 +36,27 @@ h4{
   justify-content: center;
   height: 450px;
   background-size: cover;
+  filter: blur(3px);
+}
+
+.banner-text {
+    // background: rgba(50, 50, 50, 0.8);
+    border-radius: 5px;
+    // filter: blur(4px);
+    position: absolute;
+    top: 150px;
+
+
+  }
   h1 {
     color: $light-gray;
     font-size:38px;
   }
   p {
     font-size: 36px;
-    color: $less-gray
+    color: $less-gray;
+    margin: 5px 20px;
   }
-
-  .container {
-    margin-right: 5px;
-  }
-}
 
 .btn-home {
   display: flex;
