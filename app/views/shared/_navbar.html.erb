@@ -14,8 +14,10 @@
         <%= link_to new_basket_path,class: 'navbar__item', :action => 'go' do %>
           <i class='fas fa-plus navbar__icon align-self-center text-center'></i>
         <% end%>
-        <i class='fas fa-bars navbar__item navbar__icon align-self-center text-center' onclick="openNav()"></i>
-      <% else %>
+        <%= link_to destroy_user_session_path, class: 'navbar__item', :method => 'delete' do %>
+          <i class='fas fa-sign-out-alt align-self-center text-center'></i>
+        <% end%>
+        <% else %>
         <%= link_to baskets_path,class: 'navbar__item', :action => 'go' do %>
           <i class='fas fa-shopping-basket navbar__icon align-self-center text-center'></i>
         <% end%>
@@ -25,8 +27,10 @@
         <%= link_to favourites_path,class: 'navbar__item', :action => 'go' do %>
           <i class='fas fa-heart navbar__icon align-self-center text-center'></i>
         <% end%>
-        <i class='fas fa-bars navbar__item navbar__icon align-self-center text-center' onclick="openNav()"></i>
-      <% end %>
+        <%= link_to destroy_user_session_path, class: 'navbar__item', :method => 'delete' do %>
+          <i class='fas fa-sign-out-alt navbar__icon align-self-center text-center'></i>
+        <% end%>
+      <% end  %>
     <% else %>
       <%= link_to baskets_path,class: 'navbar__item', :action => 'go' do %>
         <i class='fas fa-shopping-basket navbar__icon align-self-center text-center'></i>
