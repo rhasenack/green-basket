@@ -112,7 +112,9 @@ span {
 }
 
 .product-price-btn button:hover {
-  background-color: $pink;
+  background-color: $orange;
+  color: $green;
+  transition: 0.5s;
 }
 }
 
@@ -223,8 +225,8 @@ span {
   border: transparent;
   border-radius: 60px;
   font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: $light-gray;
@@ -234,6 +236,8 @@ span {
 }
 
 .product-price-btn button:hover {
-  background-color: $pink;
+  background-color: $orange;
+  color: $green;
+  transition: 0.5s;
 }
 }

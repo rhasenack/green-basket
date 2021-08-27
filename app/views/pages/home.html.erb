@@ -6,8 +6,6 @@
       </p>
     </div>
   </div>
-
-  <div class="container">
    <h2 class="text-center">How it works</h2>
   <div class="card-form">
     <div class="container-home">
@@ -54,9 +52,10 @@
       </div>
     </div>
   </div>
-  </div>
-<div class="container">
-  <button class="btngui"> Try!</button>
+<div class="container btn-home">
+  <%= link_to new_user_session_path,class: 'navbar__item', :action => 'go' do %>
+    <button> Try!</button>
+  <% end%>
 </div>
 
     <!--  footer -->

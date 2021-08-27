@@ -17,4 +17,8 @@ class BasketPolicy < ApplicationPolicy
     # record.user_id == user.id
     true
   end
+
+  def favourites?
+    true
+  end
 end

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :favourites
+
   ROLES = %w[Restaurant Consumer]
   validates :role, inclusion: { in: ROLES }
 
