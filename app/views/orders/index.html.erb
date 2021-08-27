@@ -47,10 +47,10 @@ https://images.unsplash.com/photo-1565809655810-3973da946da1?ixid=MnwxMjA3fDB8MH
               <div class="card-content">
                 <div class="image-order">
                   <% if order.basket.photo.attached? %>
-                  <%= cl_image_tag order.basket.photo.key, height: 150, width: 200, crop: :fill %>
-                <% else%>
-                  <img src="<%= basket_array.sample%>" height="150" width="200">
-                <%end%>
+                    <%= cl_image_tag order.basket.photo.key, height: 150, width: 200, crop: :fill %>
+                  <% else%>
+                    <img src="<%= basket_array.sample%>" height="150" width="200">
+                  <%end%>
                 </div>
                 <h2><%= order.basket.name %></h2>
                 <p>R$ <%= order.price %></p>
@@ -58,9 +58,9 @@ https://images.unsplash.com/photo-1565809655810-3973da946da1?ixid=MnwxMjA3fDB8MH
                 <p><strong><%= order.status.capitalize %></strong></p>
               </div>
             </div>
-          <% end  %>
+          <% end %>
       </div>
-    <% end  %>
+    <% end %>
   </div>
 
 
@@ -69,9 +69,12 @@ https://images.unsplash.com/photo-1565809655810-3973da946da1?ixid=MnwxMjA3fDB8MH
     <h2>My Baskets</h2>
     <% if @baskets.count == 0 %>
       <p>You don't have any published baskets yet.</p>
-      <p><%= link_to 'Publish a new basket!', new_basket_path %></p>
+      <div class="container text-center">
+        <%= link_to new_basket_path, class: 'btngui', :action => 'go' do %>
+          <button>Publish a new basket!</button>
+        <% end%>
+      </div>
     <% else %>
-
       <div class="filter-buttons">
         <button class="btn btn-outline-primary" id="reserved-btn" data-toggle="button" aria-pressed="true" autocomplete="off"> Reserved</button>
         <button class="btn btn-outline-primary" id="available-btn" data-toggle="button" aria-pressed="true" autocomplete="off"> Available</button>

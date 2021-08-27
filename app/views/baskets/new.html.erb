@@ -7,23 +7,23 @@
             <h4 class='mb-3 pb-2'>Create a new basket</h4>
             <div class='container'>
               <%= simple_form_for @basket do |f| %>
-              <div class='form-group'>
+
                 <%=f.input :name,
                             required: true,
                             autofocus: true,
                             class: 'form-style border border-1 border-white rounded',
-                            placeholder: "Description" %>
+                            placeholder: "Name" %>
                 <i class='input-icon uil uil-at'></i>
-              </div>
-              <div class='form-group'>
+
+
                 <%=f.input :description,
                             required: false,
                             autofocus: true,
                             class: 'form-style border border-1 border-white rounded',
                             placeholder: "Description" %>
                 <i class='input-icon uil uil-at'></i>
-              </div>
-              <div class='form-group'>
+
+
                 <%=f.input :address,
                             required: true,
                             autofocus: true,
@@ -31,8 +31,8 @@
                             placeholder: "Address",
                             id: 'basket-address' %>
                 <i class='input-icon uil uil-at'></i>
-              </div>
-              <div class='form-group'>
+
+
                 <%=f.input :price,
                             required: true,
                             autofocus: true,
@@ -40,8 +40,8 @@
                             class: 'form-style border border-1 border-white rounded',
                             placeholder: "Price" %>
                 <i class='input-icon uil uil-at'></i>
-              </div>
-              <div class='form-group'>
+
+
                 <%=f.input :stock,
                             required: false,
                             autofocus: true,
@@ -49,20 +49,19 @@
                             class: 'form-style border border-1 border-white rounded',
                             placeholder: "Stock" %>
                 <i class='input-icon uil uil-at'></i>
-              </div>
-              <div class='form-actions'>
+
                 <%= f.input :photo,
                             as: :file,
                             class: 'btn-sign mb-1 mt-3 rounded-3' %>
-              </div>
-            </div>
-            <div class="form-actions">
-              <%= f.button :submit, "Create basket", class: 'btn-sign mb-1 mt-3 rounded-3' %>
+
+                <div class="form-actions">
+                  <%= f.submit "Create basket", class: 'btn-sign mb-1 mt-3 rounded-3' %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <% end %>
 </div>
