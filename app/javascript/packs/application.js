@@ -28,6 +28,7 @@ import "bootstrap";
 
 import { toggleItemsInOrders } from './orders_select';
 import { initMapbox } from '../plugins/init_mapbox';
+import { loadDynamicBannerText } from '../components/banner';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -39,5 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   switchLogic();
   toggleItemsInOrders();
   initMapbox();
+  loadDynamicBannerText();
+
 
 });
