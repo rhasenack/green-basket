@@ -1,11 +1,8 @@
 <div class="dashboard-container">
 
-  <h1>DEIXAR EM BRANCO</h1>
-  <p><%= current_user.email %></p>
-
 <% if current_user.consumer? %>
   <div class="orders">
-    <h2>My Green Orders</h2>
+    <h1>My Green Orders</h1>
     <% if @orders.count == 0 %>
       <p>You don't have any order yet...</p>
       <p><%= link_to 'Check out the available baskets!', baskets_path %></p>
@@ -43,8 +40,14 @@ https://images.unsplash.com/photo-1565809655810-3973da946da1?ixid=MnwxMjA3fDB8MH
           <% @orders.each do |order| %>
             <div class="orders-card <%= order.status.capitalize %>">
               <div class="card-content">
-                <h2>Deixar em branco<%= order.id %></h2>
-                <img src="<%=basket_array.sample%>"height="150" width="150">
+                <div class="image-order">
+                  <% if order.basket.photo.attached? %>
+                  <%= cl_image_tag order.basket.photo.key, height: 150, width: 200, crop: :fill %>
+                <% else%>
+                  <img src="<%= basket_array.sample%>" height="150" width="200">
+                <%end%>
+                </div>
+                <h2><%= order.basket.name %></h2>
                 <p>R$ <%= order.price %></p>
 
                 <p><strong><%= order.status.capitalize %></strong></p>
