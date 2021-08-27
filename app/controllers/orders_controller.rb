@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
     @order.save
     basket = @order.basket
     basket.status = 'available'
+    authorize basket
     basket.save
     redirect_to orders_path
   end
@@ -43,12 +44,15 @@ class OrdersController < ApplicationController
     @order.save
     basket = @order.basket
     basket.stock -= @order.quantity
+    authorize @order
     if basket.stock <= 0
       basket.status = 'unavailable'
     else
       basket.status = 'available'
     end
     basket.save
+
+    redirect_to orders_path
   end
 
   def cancel
@@ -62,6 +66,8 @@ class OrdersController < ApplicationController
     else
       basket.status = 'available'
     end
+    authorize @order
     basket.save
+    redirect_to orders_path
   end
 end

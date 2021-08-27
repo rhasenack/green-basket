@@ -5,7 +5,7 @@
       <br>
       <% if @baskets.size == 0 %>
         <h1 class="text-center"> You dont have any published baskets yet!</h1>
-        <%= link_to new_basket_url() do  %>
+        <%= link_to new_basket_url(), data: { turbolinks: false } do  %>
           <button class="btn-sign mb-1 mt-3 rounded-3" id='add-basket-button'>Add a basket!</button>
         <% end %>
       <% else %>
