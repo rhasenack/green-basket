@@ -79,3 +79,39 @@
       margin: 0 auto;
       width: 900;
 }
+
+.btngui {
+  height: 38px;
+  width: 135px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $light-gray;
+  background-color: $green;
+  cursor: pointer;
+  outline: none;
+}
+
+h1 {
+  color:$green;
+  font-weight: bold;
+
+}
+
+
+
+h2 {
+  color:$green;
+  font-weight: bold;
+}
+
+
+p {
+  color:$green;
+  font-size: 20px;
+}
